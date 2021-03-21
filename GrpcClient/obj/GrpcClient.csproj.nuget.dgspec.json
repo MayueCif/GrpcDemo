@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work Code\\Learning\\GrpcDemo\\GrpcServiceDemo\\GrpcServiceDemo.csproj": {}
+    "D:\\Work Code\\Learning\\GrpcDemo\\GrpcClient\\GrpcClient.csproj": {}
   },
   "projects": {
-    "D:\\Work Code\\Learning\\GrpcDemo\\GrpcServiceDemo\\GrpcServiceDemo.csproj": {
+    "D:\\Work Code\\Learning\\GrpcDemo\\GrpcClient\\GrpcClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work Code\\Learning\\GrpcDemo\\GrpcServiceDemo\\GrpcServiceDemo.csproj",
-        "projectName": "GrpcServiceDemo",
-        "projectPath": "D:\\Work Code\\Learning\\GrpcDemo\\GrpcServiceDemo\\GrpcServiceDemo.csproj",
+        "projectUniqueName": "D:\\Work Code\\Learning\\GrpcDemo\\GrpcClient\\GrpcClient.csproj",
+        "projectName": "GrpcClient",
+        "projectPath": "D:\\Work Code\\Learning\\GrpcDemo\\GrpcClient\\GrpcClient.csproj",
         "packagesPath": "C:\\Users\\Magoo\\.nuget\\packages\\",
-        "outputPath": "D:\\Work Code\\Learning\\GrpcDemo\\GrpcServiceDemo\\obj\\",
+        "outputPath": "D:\\Work Code\\Learning\\GrpcDemo\\GrpcClient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -21,15 +21,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,12 +40,30 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "Grpc.AspNetCore": {
+            "Google.Protobuf": {
               "target": "Package",
-              "version": "[2.34.0, )"
+              "version": "[3.15.6, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.36.0, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.36.1, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Console": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [
@@ -59,9 +77,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

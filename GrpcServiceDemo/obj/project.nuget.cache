@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2NWAtsGEZMkgC0ete0Bq0y7M3MOdkeUoTYk6dSEpCG18uTYlAWAZ7mqPt3hh/veVMe2S84iCGHUVnW3hfLVb+Q==",
+  "dgSpecHash": "41lhJucIiEl4UY11241Svk6FvNc/SRZ9n4NSOsI24934wsayFNX3RICoPAY0ySaudOpkakmB9jZyahI/XP/Jpw==",
   "success": true,
-  "projectFilePath": "D:\\Work Code\\Learning\\gRPC\\GrpcServiceDemo\\GrpcServiceDemo.csproj",
+  "projectFilePath": "D:\\Work Code\\Learning\\GrpcDemo\\GrpcServiceDemo\\GrpcServiceDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Magoo\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
     "C:\\Users\\Magoo\\.nuget\\packages\\grpc.aspnetcore\\2.34.0\\grpc.aspnetcore.2.34.0.nupkg.sha512",

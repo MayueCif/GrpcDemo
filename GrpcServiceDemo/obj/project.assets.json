@@ -699,11 +699,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Work Code\\Learning\\gRPC\\GrpcServiceDemo\\GrpcServiceDemo.csproj",
+      "projectUniqueName": "D:\\Work Code\\Learning\\GrpcDemo\\GrpcServiceDemo\\GrpcServiceDemo.csproj",
       "projectName": "GrpcServiceDemo",
-      "projectPath": "D:\\Work Code\\Learning\\gRPC\\GrpcServiceDemo\\GrpcServiceDemo.csproj",
+      "projectPath": "D:\\Work Code\\Learning\\GrpcDemo\\GrpcServiceDemo\\GrpcServiceDemo.csproj",
       "packagesPath": "C:\\Users\\Magoo\\.nuget\\packages\\",
-      "outputPath": "D:\\Work Code\\Learning\\gRPC\\GrpcServiceDemo\\obj\\",
+      "outputPath": "D:\\Work Code\\Learning\\GrpcDemo\\GrpcServiceDemo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
