@@ -55,6 +55,27 @@ namespace GrpcClient {
         __Marshaller_greet_HelloRequest,
         __Marshaller_greet_HelloReply);
 
+    static readonly grpc::Method<global::GrpcClient.HelloRequest, global::GrpcClient.HelloReply> __Method_StreamingServer = new grpc::Method<global::GrpcClient.HelloRequest, global::GrpcClient.HelloReply>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "StreamingServer",
+        __Marshaller_greet_HelloRequest,
+        __Marshaller_greet_HelloReply);
+
+    static readonly grpc::Method<global::GrpcClient.HelloRequest, global::GrpcClient.HelloReply> __Method_StreamingClient = new grpc::Method<global::GrpcClient.HelloRequest, global::GrpcClient.HelloReply>(
+        grpc::MethodType.ClientStreaming,
+        __ServiceName,
+        "StreamingClient",
+        __Marshaller_greet_HelloRequest,
+        __Marshaller_greet_HelloReply);
+
+    static readonly grpc::Method<global::GrpcClient.HelloRequest, global::GrpcClient.HelloReply> __Method_StreamingWays = new grpc::Method<global::GrpcClient.HelloRequest, global::GrpcClient.HelloReply>(
+        grpc::MethodType.DuplexStreaming,
+        __ServiceName,
+        "StreamingWays",
+        __Marshaller_greet_HelloRequest,
+        __Marshaller_greet_HelloReply);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -127,6 +148,68 @@ namespace GrpcClient {
       public virtual grpc::AsyncUnaryCall<global::GrpcClient.HelloReply> SayHelloAsync(global::GrpcClient.HelloRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_SayHello, null, options, request);
+      }
+      /// <summary>
+      /// Server streaming
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncServerStreamingCall<global::GrpcClient.HelloReply> StreamingServer(global::GrpcClient.HelloRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return StreamingServer(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Server streaming
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncServerStreamingCall<global::GrpcClient.HelloReply> StreamingServer(global::GrpcClient.HelloRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_StreamingServer, null, options, request);
+      }
+      /// <summary>
+      /// Client streaming
+      /// </summary>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncClientStreamingCall<global::GrpcClient.HelloRequest, global::GrpcClient.HelloReply> StreamingClient(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return StreamingClient(new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Client streaming
+      /// </summary>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncClientStreamingCall<global::GrpcClient.HelloRequest, global::GrpcClient.HelloReply> StreamingClient(grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncClientStreamingCall(__Method_StreamingClient, null, options);
+      }
+      /// <summary>
+      /// Bi-directional streaming
+      /// </summary>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncDuplexStreamingCall<global::GrpcClient.HelloRequest, global::GrpcClient.HelloReply> StreamingWays(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return StreamingWays(new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Bi-directional streaming
+      /// </summary>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncDuplexStreamingCall<global::GrpcClient.HelloRequest, global::GrpcClient.HelloReply> StreamingWays(grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncDuplexStreamingCall(__Method_StreamingWays, null, options);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override GreeterClient NewInstance(ClientBaseConfiguration configuration)

@@ -1,3 +1,8 @@
+D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.AssemblyInfoInputs.cache
+D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.AssemblyInfo.cs
+D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.csproj.CoreCompileInputs.cache
+D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.MvcApplicationPartsAssemblyInfo.cache
 D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\bin\Debug\net5.0\appsettings.Development.json
 D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\bin\Debug\net5.0\appsettings.json
 D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\bin\Debug\net5.0\GrpcServiceDemo.exe
@@ -14,12 +19,6 @@ D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\bin\Debug\net5.0\Grpc.Core.Api.dl
 D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\bin\Debug\net5.0\Grpc.Net.Client.dll
 D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\bin\Debug\net5.0\Grpc.Net.ClientFactory.dll
 D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\bin\Debug\net5.0\Grpc.Net.Common.dll
-D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.csprojAssemblyReference.cache
-D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.GeneratedMSBuildEditorConfig.editorconfig
-D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.AssemblyInfoInputs.cache
-D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.AssemblyInfo.cs
-D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.csproj.CoreCompileInputs.cache
-D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.MvcApplicationPartsAssemblyInfo.cache
 D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\staticwebassets\GrpcServiceDemo.StaticWebAssets.Manifest.cache
 D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\staticwebassets\GrpcServiceDemo.StaticWebAssets.xml
 D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\scopedcss\bundle\GrpcServiceDemo.styles.css
@@ -29,3 +28,4 @@ D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.
 D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\ref\GrpcServiceDemo.dll
 D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.pdb
 D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.genruntimeconfig.cache
+D:\Work Code\Learning\GrpcDemo\GrpcServiceDemo\obj\Debug\net5.0\GrpcServiceDemo.csprojAssemblyReference.cache

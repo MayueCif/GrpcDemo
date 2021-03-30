@@ -55,6 +55,27 @@ namespace GrpcServiceDemo {
         __Marshaller_greet_HelloRequest,
         __Marshaller_greet_HelloReply);
 
+    static readonly grpc::Method<global::GrpcServiceDemo.HelloRequest, global::GrpcServiceDemo.HelloReply> __Method_StreamingServer = new grpc::Method<global::GrpcServiceDemo.HelloRequest, global::GrpcServiceDemo.HelloReply>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "StreamingServer",
+        __Marshaller_greet_HelloRequest,
+        __Marshaller_greet_HelloReply);
+
+    static readonly grpc::Method<global::GrpcServiceDemo.HelloRequest, global::GrpcServiceDemo.HelloReply> __Method_StreamingClient = new grpc::Method<global::GrpcServiceDemo.HelloRequest, global::GrpcServiceDemo.HelloReply>(
+        grpc::MethodType.ClientStreaming,
+        __ServiceName,
+        "StreamingClient",
+        __Marshaller_greet_HelloRequest,
+        __Marshaller_greet_HelloReply);
+
+    static readonly grpc::Method<global::GrpcServiceDemo.HelloRequest, global::GrpcServiceDemo.HelloReply> __Method_StreamingWays = new grpc::Method<global::GrpcServiceDemo.HelloRequest, global::GrpcServiceDemo.HelloReply>(
+        grpc::MethodType.DuplexStreaming,
+        __ServiceName,
+        "StreamingWays",
+        __Marshaller_greet_HelloRequest,
+        __Marshaller_greet_HelloReply);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -76,6 +97,41 @@ namespace GrpcServiceDemo {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      /// <summary>
+      /// Server streaming
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
+      public virtual global::System.Threading.Tasks.Task StreamingServer(global::GrpcServiceDemo.HelloRequest request, grpc::IServerStreamWriter<global::GrpcServiceDemo.HelloReply> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Client streaming
+      /// </summary>
+      /// <param name="requestStream">Used for reading requests from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::GrpcServiceDemo.HelloReply> StreamingClient(grpc::IAsyncStreamReader<global::GrpcServiceDemo.HelloRequest> requestStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Bi-directional streaming
+      /// </summary>
+      /// <param name="requestStream">Used for reading requests from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
+      public virtual global::System.Threading.Tasks.Task StreamingWays(grpc::IAsyncStreamReader<global::GrpcServiceDemo.HelloRequest> requestStream, grpc::IServerStreamWriter<global::GrpcServiceDemo.HelloReply> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -83,7 +139,10 @@ namespace GrpcServiceDemo {
     public static grpc::ServerServiceDefinition BindService(GreeterBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_SayHello, serviceImpl.SayHello).Build();
+          .AddMethod(__Method_SayHello, serviceImpl.SayHello)
+          .AddMethod(__Method_StreamingServer, serviceImpl.StreamingServer)
+          .AddMethod(__Method_StreamingClient, serviceImpl.StreamingClient)
+          .AddMethod(__Method_StreamingWays, serviceImpl.StreamingWays).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -93,6 +152,9 @@ namespace GrpcServiceDemo {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, GreeterBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_SayHello, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcServiceDemo.HelloRequest, global::GrpcServiceDemo.HelloReply>(serviceImpl.SayHello));
+      serviceBinder.AddMethod(__Method_StreamingServer, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::GrpcServiceDemo.HelloRequest, global::GrpcServiceDemo.HelloReply>(serviceImpl.StreamingServer));
+      serviceBinder.AddMethod(__Method_StreamingClient, serviceImpl == null ? null : new grpc::ClientStreamingServerMethod<global::GrpcServiceDemo.HelloRequest, global::GrpcServiceDemo.HelloReply>(serviceImpl.StreamingClient));
+      serviceBinder.AddMethod(__Method_StreamingWays, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::GrpcServiceDemo.HelloRequest, global::GrpcServiceDemo.HelloReply>(serviceImpl.StreamingWays));
     }
 
   }

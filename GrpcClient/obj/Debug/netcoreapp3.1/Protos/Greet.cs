@@ -25,14 +25,19 @@ namespace GrpcClient {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChJQcm90b3MvZ3JlZXQucHJvdG8SBWdyZWV0IhwKDEhlbGxvUmVxdWVzdBIM",
-            "CgRuYW1lGAEgASgJIh0KCkhlbGxvUmVwbHkSDwoHbWVzc2FnZRgBIAEoCTI9",
-            "CgdHcmVldGVyEjIKCFNheUhlbGxvEhMuZ3JlZXQuSGVsbG9SZXF1ZXN0GhEu",
-            "Z3JlZXQuSGVsbG9SZXBseUINqgIKR3JwY0NsaWVudGIGcHJvdG8z"));
+            "CgRuYW1lGAEgASgJIiwKCkhlbGxvUmVwbHkSDwoHbWVzc2FnZRgBIAEoCRIN",
+            "CgVjb3VudBgCIAEoBTL0AQoHR3JlZXRlchIyCghTYXlIZWxsbxITLmdyZWV0",
+            "LkhlbGxvUmVxdWVzdBoRLmdyZWV0LkhlbGxvUmVwbHkSOwoPU3RyZWFtaW5n",
+            "U2VydmVyEhMuZ3JlZXQuSGVsbG9SZXF1ZXN0GhEuZ3JlZXQuSGVsbG9SZXBs",
+            "eTABEjsKD1N0cmVhbWluZ0NsaWVudBITLmdyZWV0LkhlbGxvUmVxdWVzdBoR",
+            "LmdyZWV0LkhlbGxvUmVwbHkoARI7Cg1TdHJlYW1pbmdXYXlzEhMuZ3JlZXQu",
+            "SGVsbG9SZXF1ZXN0GhEuZ3JlZXQuSGVsbG9SZXBseSgBMAFCDaoCCkdycGND",
+            "bGllbnRiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.HelloRequest), global::GrpcClient.HelloRequest.Parser, new[]{ "Name" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.HelloReply), global::GrpcClient.HelloReply.Parser, new[]{ "Message" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.HelloReply), global::GrpcClient.HelloReply.Parser, new[]{ "Message", "Count" }, null, null, null, null)
           }));
     }
     #endregion
@@ -247,6 +252,7 @@ namespace GrpcClient {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public HelloReply(HelloReply other) : this() {
       message_ = other.message_;
+      count_ = other.count_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -266,6 +272,17 @@ namespace GrpcClient {
       }
     }
 
+    /// <summary>Field number for the "count" field.</summary>
+    public const int CountFieldNumber = 2;
+    private int count_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Count {
+      get { return count_; }
+      set {
+        count_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as HelloReply);
@@ -280,6 +297,7 @@ namespace GrpcClient {
         return true;
       }
       if (Message != other.Message) return false;
+      if (Count != other.Count) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -287,6 +305,7 @@ namespace GrpcClient {
     public override int GetHashCode() {
       int hash = 1;
       if (Message.Length != 0) hash ^= Message.GetHashCode();
+      if (Count != 0) hash ^= Count.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -307,6 +326,10 @@ namespace GrpcClient {
         output.WriteRawTag(10);
         output.WriteString(Message);
       }
+      if (Count != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Count);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -320,6 +343,10 @@ namespace GrpcClient {
         output.WriteRawTag(10);
         output.WriteString(Message);
       }
+      if (Count != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Count);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -331,6 +358,9 @@ namespace GrpcClient {
       int size = 0;
       if (Message.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      if (Count != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Count);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -345,6 +375,9 @@ namespace GrpcClient {
       }
       if (other.Message.Length != 0) {
         Message = other.Message;
+      }
+      if (other.Count != 0) {
+        Count = other.Count;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -364,6 +397,10 @@ namespace GrpcClient {
             Message = input.ReadString();
             break;
           }
+          case 16: {
+            Count = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -380,6 +417,10 @@ namespace GrpcClient {
             break;
           case 10: {
             Message = input.ReadString();
+            break;
+          }
+          case 16: {
+            Count = input.ReadInt32();
             break;
           }
         }
