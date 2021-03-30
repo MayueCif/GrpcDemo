@@ -23,25 +23,25 @@ namespace GrpcClient
                 new GrpcChannelOptions { LoggerFactory = loggerFactory });
 
             var client = new Greeter.GreeterClient(channel);
-            //var reply = await client.SayHelloAsync(
-            //  new HelloRequest { Name = "GreeterClient" });
-            //Console.WriteLine("Greeting: " + reply.Message);
+            var reply = await client.SayHelloAsync(
+              new HelloRequest { Name = "GreeterClient" });
+            Console.WriteLine("Greeting: " + reply.Message);
 
-            //var token = new CancellationTokenSource(TimeSpan.FromSeconds(5));
-            //using var replyStreamServer = client.StreamingServer(
-            //    new HelloRequest { Name = "StreamingServer" },
-            //    cancellationToken: token.Token);
-            //try
-            //{
-            //    await foreach (var item in replyStreamServer.ResponseStream.ReadAllAsync(token.Token))
-            //    { 
-            //        Console.WriteLine(item.Message);
-            //    }
-            //}
-            //catch (RpcException exc)
-            //{
-            //    Console.WriteLine(exc.Message);
-            //}
+            var token = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+            using var replyStreamServer = client.StreamingServer(
+                new HelloRequest { Name = "StreamingServer" },
+                cancellationToken: token.Token);
+            try
+            {
+                await foreach (var item in replyStreamServer.ResponseStream.ReadAllAsync(token.Token))
+                {
+                    Console.WriteLine(item.Message);
+                }
+            }
+            catch (RpcException exc)
+            {
+                Console.WriteLine(exc.Message);
+            }
 
             using var replyStreamClient = client.StreamingClient();
 
@@ -58,6 +58,27 @@ namespace GrpcClient
 
             Console.WriteLine(response.Count);
             Console.WriteLine(response.Message);
+
+            using var replyStreamWays = client.StreamingWays();
+            for (int i = 0; i < 5; i++)
+            {
+                await replyStreamWays.RequestStream.WriteAsync(new HelloRequest
+                {
+                    Name = "StreamWaysName " + i,
+                });
+            }
+
+            while (await replyStreamWays.ResponseStream.MoveNext())
+            {
+                try
+                {
+                    Console.WriteLine($"Response Return:{replyStreamWays.ResponseStream.Current.Message}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
 
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();

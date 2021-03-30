@@ -45,13 +45,33 @@ namespace GrpcServiceDemo
 
         public override async Task StreamingWays(IAsyncStreamReader<HelloRequest> requestStream, IServerStreamWriter<HelloReply> responseStream, ServerCallContext context)
         {
+                    
+            while (await requestStream.MoveNext())
+            {
+                Console.WriteLine($"Begin read request");
+                Console.WriteLine(requestStream.Current.Name);
+                await responseStream.WriteAsync(new HelloReply() { 
+                    Message=DateTimeOffset.Now.ToString("HH:mm:ss")
+                });
+            }
 
+        }
+
+        /// <summary>
+        /// ¹Ù·½Ð´·¨Ê¾Àý
+        /// </summary>
+        /// <param name="requestStream"></param>
+        /// <param name="responseStream"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        private async Task Official(IAsyncStreamReader<HelloRequest> requestStream, IServerStreamWriter<HelloReply> responseStream, ServerCallContext context) 
+        {
             // Read requests in a background task.         
             var readTask = Task.Run(async () =>
             {
                 await foreach (var message in requestStream.ReadAllAsync())
                 {
-                    // Process request.
+                    //Process request.
                 }
             });
 
@@ -61,7 +81,6 @@ namespace GrpcServiceDemo
                 await responseStream.WriteAsync(new HelloReply());
                 await Task.Delay(TimeSpan.FromSeconds(1), context.CancellationToken);
             }
-            //return base.StreamingWays(requestStream, responseStream, context);
         }
 
     }
